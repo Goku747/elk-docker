@@ -1,0 +1,23 @@
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: elk_deployment
+spec:
+  serviceAccountName: jenkins
+  selector:
+    matchLabels:
+      app: elk
+  replicas: 1 # tells deployment to run 1 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: elk
+    spec:
+      containers:
+      - name: elk
+        image: sebp/elk
+        ports:
+          - "5601:5601"
+          - "9200:9200"
+          - "5044:5044"
