@@ -1,3 +1,3 @@
 # elk-docker
-ELK stack as docker-compose
+ELK stack as docker-compose 
  
